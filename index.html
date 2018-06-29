@@ -40,7 +40,7 @@
 					    <input id="fruta_nueva" v-model="fruta_nueva" type="text" class="form-control" placeholder="Fruta" autofocus ref="nueva" >
 					  </div>
 					  <div class="col-3">
-					  	<button type="button" class="btn btn-primary mb-2">Agregar</button>
+					  	<button type="button" class="btn btn-primary mb-2" @click="agregarFruta()">Agregar</button>
 					  </div>
 				</div>
 				<div class="row">
@@ -70,6 +70,15 @@
                 },
                 methods:{
 
+                	agregarFruta: function(){
+
+	                  	if(this.fruta_nueva!=""){
+	                  		this.frutas.push(this.fruta_nueva);
+					        this.fruta_nueva = "";
+					        this.$refs.nueva.focus();
+	                  	}
+
+	                }
 
                 }
             });
